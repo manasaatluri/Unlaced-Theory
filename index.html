@@ -88,7 +88,7 @@
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .about-img-wrap { position: relative; }
   .about-img-placeholder { width: 100%; aspect-ratio: 4/5; background: linear-gradient(135deg, #1C1C1C 0%, #2d1005 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-  .about-img-placeholder::before { content:''; position:absolute; inset:0; background: url("./DSC00444.jpg") no-repeat center/cover; }
+  .about-img-placeholder::before { content:''; position:absolute; inset:0; background: url("./founder img.jpeg") no-repeat center/cover; }
   .about-badge { position: absolute; bottom: -20px; right: -20px; background: var(--orange); color: var(--white); border-radius: var(--radius-lg); padding: 20px 24px; font-family: var(--font-display); text-align: center; box-shadow: var(--shadow-lg); z-index: 2; }
   .about-badge-num { font-size: 40px; font-weight: 900; line-height: 1; display: block; }
   .about-badge-text { font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; opacity: 0.9; }
@@ -97,6 +97,21 @@
   .pillar { background: var(--grey-card); border-radius: var(--radius-md); padding: 18px 20px; border-left: 3px solid var(--orange); }
   .pillar-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; color: var(--black); }
   .pillar-desc { font-size: 13px; color: var(--grey-mid); line-height: 1.5; }
+
+  /* ---- UT RUN - 1 ---- */
+  #ut-run-1 { padding: 110px 0; background: var(--white); border-top: 1px solid var(--border); }
+  .run-1-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+  @media (max-width: 900px) { .run-1-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .run-1-content h3 { font-family: var(--font-display); font-size: 32px; font-weight: 800; text-transform: uppercase; margin-bottom: 16px; color: var(--black); }
+  .run-1-content p { color: var(--grey-dark); font-size: 16px; margin-bottom: 20px; }
+  .run-1-stats { display: flex; gap: 24px; margin-top: 32px; }
+  .stat-box { background: var(--orange-pale); padding: 20px; border-radius: var(--radius-md); min-width: 120px; text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: var(--orange); display: block; line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--dark-mid); letter-spacing: 0.05em; }
+  .run-1-graphic { background: var(--dark); border-radius: var(--radius-xl); padding: 40px; color: var(--white); position: relative; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: flex-end; }
+  .run-1-graphic::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85) 100%), url("./DSC00444.jpg") no-repeat center/cover; opacity: 0.85; }
+  .run-1-tag { position: relative; z-index: 2; font-family: var(--font-display); font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; }
+  .run-1-title { position: relative; z-index: 2; font-family: var(--font-display); font-size: 42px; font-weight: 900; text-transform: uppercase; line-height: 1.0; margin-top: 4px; }
 
   /* ---- RUN UPDATES ---- */
   #updates { padding: 110px 0; background: var(--grey-pale); }
@@ -119,33 +134,19 @@
   .date-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--orange-pale); color: var(--orange); font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; padding: 5px 12px; border-radius: 50px; margin-bottom: 12px; align-self: flex-start; }
   .update-card-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 10px; color: var(--black); }
   .update-card-desc { font-size: 15px; color: var(--grey-mid); line-height: 1.6; }
-  .update-tag { display: inline-block; margin-top: 16px; font-size: 12px; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; }
+  
+  /* Styled class for point location link anchor tag */
+  .location-anchor { display: inline-block; margin-top: 16px; font-size: 12px; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: color 0.2s; }
+  .location-anchor:hover { color: var(--orange-dark); text-decoration: underline; }
 
-  /* ---- REGISTER ---- */
+  /* ---- REGISTER SECTION ---- */
   #register { padding: 110px 0; background: var(--dark); position: relative; overflow: hidden; }
   #register::before { content: ''; position: absolute; top: -120px; right: -120px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(245,92,27,0.15) 0%, transparent 70%); }
-  .register-header { text-align: center; margin-bottom: 60px; }
+  .register-header { text-align: center; margin-bottom: 40px; }
   .register-header .section-title { color: var(--white); }
   .register-header p { color: rgba(255,255,255,0.6); margin-top: 16px; font-size: 16px; }
-  .register-card { background: var(--white); border-radius: var(--radius-xl); padding: 52px; max-width: 700px; margin: 0 auto; position: relative; z-index: 1; box-shadow: 0 40px 80px rgba(0,0,0,0.4); border-top: 5px solid var(--orange); }
-  .form-group { margin-bottom: 22px; }
-  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--grey-dark); margin-bottom: 7px; letter-spacing: 0.02em; }
-  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 16px; border: 1.5px solid #E0E0DC; border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 15px; color: var(--black); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; appearance: none; }
-  .form-group input:focus, .form-group select:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(245,92,27,0.12); }
-  .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
-  .price-display { background: var(--grey-card); border-radius: var(--radius-md); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border: 1.5px solid #E0E0DC; }
-  .price-label { font-size: 14px; color: var(--grey-mid); }
-  .price-amount { font-family: var(--font-display); font-size: 28px; font-weight: 900; color: var(--orange); }
-  .payment-section { margin-top: 28px; padding-top: 28px; border-top: 1.5px solid #E8E8E4; }
-  .payment-label { font-family: var(--font-display); font-size: 14px; font-weight: 800; letter-spacing: 0.10em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
-  .payment-label::after { content: '🔒'; font-size: 13px; }
-  
-  .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; text-align: left; background: var(--orange-pale); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--orange); }
-  .checkbox-group input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--orange); flex-shrink: 0; cursor: pointer; }
-  .checkbox-group label { font-size: 13px; font-weight: 600; color: var(--black); line-height: 1.4; cursor: pointer; }
-  .submit-btn { width: 100%; padding: 17px; background: var(--orange); color: var(--white); border: none; border-radius: 50px; font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em; }
-  .submit-btn:disabled { background: var(--grey-light) !important; color: rgba(255,255,255,0.7) !important; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
-  .form-note { text-align: center; font-size: 12px; color: var(--grey-mid); margin-top: 12px; }
+  .form-container-wrap { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.4); border-top: 6px solid var(--orange); padding: 10px; }
+  .iframe-loading { background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="38" height="38" stroke="%23F55C1B"%3E%3Cg fill="none" fill-rule="evenodd" stroke-width="2" transform="translate(1 1)"%3E%3Ccircle cx="18" cy="18" r="18" stroke-opacity=".5"/%3E%3Cpath d="M36 18c0-9.94-8.06-18-18-18"%3E%3CanimateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/%3E%3C/path%3E%3C/g%3E%3C/svg%3E') center no-repeat; }
 
   /* ---- SOCIAL / CONTACT SECTION ---- */
   #contact { padding: 100px 0; background: var(--white); text-align: center; }
@@ -183,13 +184,11 @@
     nav a:not(.nav-cta) { display: none; }
     .hamburger { display: block; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .updates-grid { grid-template-columns: 1fr 1fr; }
+    .updates-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
   }
   @media (max-width: 600px) {
-    .updates-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
-    .register-card { padding: 32px 24px; }
     .hero-h1 { font-size: 58px; }
     .socials { flex-direction: column; align-items: center; width: 100%; }
     .social-btn { width: 100%; max-width: 440px; justify-content: center; }
@@ -203,7 +202,8 @@
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-close" onclick="closeMobileNav()" aria-label="Close menu">✕</button>
   <a href="#home" onclick="closeMobileNav()">Home</a>
-  <a href="#about" onclick="closeMobileNav()">About Us</a>
+  <a href="#about" onclick="closeMobileNav()">Our Story</a>
+  <a href="#ut-run-1" onclick="closeMobileNav()">UT Run - 1</a>
   <a href="#updates" onclick="closeMobileNav()">Run Updates</a>
   <a href="#register" onclick="closeMobileNav()">Register</a>
   <a href="#contact" onclick="closeMobileNav()">Contact Us</a>
@@ -217,7 +217,8 @@
     </a>
     <nav>
       <a href="#home">Home</a>
-      <a href="#about">About Us</a>
+      <a href="#about">Our Story</a>
+      <a href="#ut-run-1">UT Run - 1</a>
       <a href="#updates">Run Updates</a>
       <a href="#register">Register</a>
       <a href="#contact">Contact Us</a>
@@ -257,8 +258,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap">
-        <div class="about-img-placeholder">
-        </div>
+        <div class="about-img-placeholder"></div>
         <div class="about-badge">
           <span class="about-badge-num">Police</span>
           <span class="about-badge-text">Supervised<br>Running</span>
@@ -267,9 +267,11 @@
       <div class="about-text">
         <span class="section-label">Our Story</span>
         <h2 class="section-title">Built by<br><span>Runners,</span><br>For Runners.</h2>
-        <p style="margin-top:24px;">Unlaced Theory began with a simple belief: running is better together. What started as a handful of friends lacing up on a run has grown into a thriving, inclusive community of over 200 local runners of every shape, speed, and story.</p>
-        <p>We don't believe in pace gates or performance benchmarks. Our philosophy is simple — if you put on shoes and show up, you belong here. We've seen first-time joggers become half-marathoners and seasoned athletes rediscover their love for the sport, all because of the community around them.</p>
-        <p>Every run we host is guided by our core value: <strong>no runner left behind.</strong></p>
+        <p style="margin-top:24px;">We’re just two classmates who always wanted to start something of our own. After throwing around a bunch of random ideas and brainstorming for days, we finally ended up creating a run club.
+        <br><br>At first, we used to fight over the silliest things, but somewhere along the way, it turned into something really meaningful. Being friends and business partners at the same time honestly feels amazing now.
+        <br><br>The whole idea behind starting a run club in Vijayawada was to give teenagers something exciting and positive to look forward to on weekend mornings. Instead of just binge-watching stuff at home, people can come out, socialize, have fun, focus on fitness, and be part of a community.
+        <br><br>For us, it’s not just about running — it’s about creating memories, meeting new people, and building a healthier and happier youth culture in the city.</p>
+        
         <div class="about-pillars">
           <div class="pillar">
             <div class="pillar-title">Inclusive</div>
@@ -287,6 +289,42 @@
             <div class="pillar-title">Safe</div>
             <div class="pillar-desc">Trained leads, lit routes, and a culture of looking out for each other.</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ut-run-1">
+  <div class="container">
+    <div class="run-1-grid">
+      <div class="run-1-content">
+        <span class="section-label">Where It Began</span>
+        <h2 class="section-title">The Genesis: <span>UT Run - 1</span></h2>
+        <p style="margin-top:20px;">
+          Every movement needs a starting point. <strong>UT Run - 1</strong> our very first run, was honestly one of the most unforgettable experiences for us. Seeing an idea that started from random conversations actually come to life felt surreal.
+          <br><br>The run was held at Bratt, and what made it even more special was the police escort that accompanied us throughout the route. It gave the whole event such an energetic and professional vibe, and seeing everyone run together early in the morning was genuinely exciting.
+          <br><br>But it wasn’t just about the run. After crossing the finish line, everyone stayed back for the afterparty, where people got to chill, interact, dance, take pictures, and just enjoy the moment together. Watching strangers become friends in just a few hours made us realize that this was exactly the kind of community we wanted to build in Vijayawada.
+        </p>
+        <div class="run-1-stats">
+          <div class="stat-box">
+            <span class="stat-num">01</span>
+            <span class="stat-label">First Milestone</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Pure Vibe</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">Vijayawada</span>
+            <span class="stat-label">Home Base</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="run-1-graphic">
+          <span class="run-1-tag">Inaugural Event</span>
+          <h4 class="run-1-title">UT Run - 1 <br><span style="color:var(--orange);">History Made.</span></h4>
         </div>
       </div>
     </div>
@@ -320,7 +358,7 @@
             Join us for an early morning run starting at Nitro Pickleball Café (near Novotel, Vijayawada, Andhra Pradesh). 
             All pace groups are welcome. Stick around post-run to hang out and grab some refreshments!
           </div>
-          <div class="update-tag">→ View Route & Register</div>
+          <a href="https://maps.app.goo.gl/5cepovCYmRKsjCgYA" target="_blank" class="location-anchor">→ Run point location</a>
         </div>
       </div>
     </div>
@@ -328,93 +366,25 @@
 </section>
 
 <section id="register">
-  <div class="container" style="position:relative;z-index:1;">
+  <div class="container">
     <div class="register-header">
-      <span class="section-label" style="color:rgba(245,92,27,0.9);">Community Run Registration</span>
-      <h2 class="section-title">Sign Up For<br><span>June 7th Run</span></h2>
-      <p>Fill out your details below, scan the QR code to pay the registration fee, and secure your spot.</p>
+      <span class="section-label" style="color:rgba(245,92,27,0.9);">Secure Your Spot</span>
+      <h2 class="section-title">Community <span>Registration</span></h2>
+      <p>Please review and fill out our official sign-up sheet below to secure your entry slot for the upcoming run.</p>
     </div>
     
-    <div class="register-card">
-      <form id="regForm" method="POST" action="https://script.google.com/macros/s/AKfycbxfLio0gx_koY3FZnL0r0Bt8wNO1c0jH7K1JYtj6MvkyM8C8xC2ypGQNddkPlzbi30/exec">
-        
-        <div class="form-group">
-          <label for="fullname">Name *</label>
-          <input type="text" id="fullname" name="Name" placeholder="Enter your full name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="age">Age *</label>
-          <input type="number" id="age" name="Age" placeholder="Enter your age" min="1" max="120" required>
-        </div>
-
-        <div class="form-group">
-          <label for="gender">Gender *</label>
-          <select id="gender" name="Gender" required>
-            <option value="" disabled selected>Select your gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other / Prefer not to say</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" name="PhoneNumber" placeholder="Enter your 10-digit phone number" required>
-        </div>
-
-        <div class="form-group">
-          <label for="instagram">Instagram Handle *</label>
-          <input type="text" id="instagram" name="InstagramHandle" placeholder="@username" required>
-        </div>
-
-        <div class="form-group">
-          <label for="emg-name">Emergency Contact Name *</label>
-          <input type="text" id="emg-name" name="EmergencyName" placeholder="Contact person's name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="emg-phone">Emergency Contact Phone Number *</label>
-          <input type="tel" id="emg-phone" name="EmergencyPhone" placeholder="Emergency phone number" required>
-        </div>
-
-        <div class="price-display">
-          <span class="price-label">Registration Fee</span>
-          <span class="price-amount">₹350</span>
-        </div>
-
-        <div id="paymentSection" class="payment-section" style="text-align: center; border: 2px dashed var(--orange); padding: 24px; border-radius: var(--radius-md); margin-bottom: 24px; background: rgba(245,92,27,0.02);">
-          <div class="payment-label" style="font-weight:700; margin-bottom:12px; color:var(--black); font-size: 16px;">Scan QR Code to Pay ₹350</div>
-          
-          <div style="margin: 15px 0;">
-            <img src="./UPI.jpg" id="upiQr" alt="PhonePe UPI Payment QR Code" style="max-width:220px; width:100%; border: 4px solid #fff; box-shadow: var(--shadow-sm); border-radius: 4px;">
-          </div>
-          
-          <div style="font-size:13px; color:var(--grey-mid); margin-bottom:15px; line-height: 1.4;">
-            Scan using any UPI app (GPay, PhonePe, Paytm). Once payment is complete, enter the 12-digit Transaction ID/UTR below.
-          </div>
-
-          <div class="form-group" style="text-align: left; margin-bottom: 0;">
-            <label for="utr">UPI Transaction ID / UTR No. (12 Digits) *</label>
-            <input type="text" id="utr" name="TransactionID" placeholder="e.g. 3456XXXXXXXX" maxlength="12" minlength="12" pattern="[a-zA-Z0-9]{12}" title="Please enter exactly 12 alphanumeric characters." required>
-          </div>
-          
-          <div class="checkbox-group">
-            <input type="checkbox" id="paymentConfirm" required>
-            <label for="paymentConfirm">I confirm that I have successfully completed the UPI payment of ₹350 and entered the correct 12-digit UTR ID above. *</label>
-          </div>
-        </div>
-
-        <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit Registration</button>
-        <p class="form-note">🔒 Data transmissions are safe, encrypted, and routed directly to Unlaced Theory.</p>
-      </form>
-
-      <div class="success-msg" id="successMsg" style="display:none; text-align: center; padding: 40px 20px;">
-        <div style="font-size:64px;margin-bottom:16px;">🎉</div>
-        <h3>Registration Submitted!</h3>
-        <p>Your details and payment reference have been safely parsed for verification. See you on June 7th at 6:00 AM!</p>
-        <a href="#updates" class="btn-orange" style="margin-top:24px;display:inline-block;">Back to Updates</a>
-      </div>
+    <div class="form-container-wrap iframe-loading">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLScYpY-RjIh7k8_q8fM_f5PUJ9z3kR6pogdHA/viewform?embedded=true" 
+        width="100%" 
+        height="900" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="display: block; background: #ffffff;"
+        onload="this.parentElement.classList.remove('iframe-loading')">
+        Loading form...
+      </iframe>
     </div>
   </div>
 </section>
@@ -463,6 +433,7 @@
         <h4>Navigation Links</h4>
         <a href="#home">Home Base</a>
         <a href="#about">Our Philosophy</a>
+        <a href="#ut-run-1">UT Run - 1</a>
         <a href="#updates">Run Updates</a>
         <a href="#register">Register for Runs</a>
       </div>
@@ -476,7 +447,7 @@
     </div>
     <div class="disclaimer">
       <div class="container">
-        <p><strong>Health &amp; Liability Disclaimer:</strong> By participating in any Unlaced Theory event, you acknowledge that running involves inherent physical risks. Participants should be in good health and consult a physician before beginning any exercise regimen. Unlaced Theory and its organizers are not liable for any injuries or health complications sustained during club activities. Participation is entirely voluntary and at your own risk.</p>
+        <p><strong>Health & Liability Disclaimer:</strong> By participating in any Unlaced Theory event, you acknowledge that running involves inherent physical risks. Participants should be in good health and consult a physician before beginning any exercise regimen. Unlaced Theory and its organizers are not liable for any injuries or health complications sustained during club activities. Participation is entirely voluntary and at your own risk.</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -493,69 +464,6 @@
 <script>
   function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
   function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow = ''; }
-
-  var utrInput = document.getElementById('utr');
-  var pntConfirm = document.getElementById('paymentConfirm');
-  var sbtBtn = document.getElementById('submitBtn');
-
-// Updated to allow alphanumeric characters (letters and numbers)
-  function evaluateFormBarrier() {
-    var val = utrInput.value.trim();
-    // Validates that it is exactly 12 characters and the box is checked
-    if(val.length === 12 && pntConfirm.checked === true) {
-      sbtBtn.disabled = false;
-    } else {
-      sbtBtn.disabled = true;
-    }
-  }
-
-  utrInput.addEventListener('input', evaluateFormBarrier);
-  pntConfirm.addEventListener('change', evaluateFormBarrier);
-
-  // Handles Async Form Submission
-  document.getElementById('regForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    var form = this;
-    var submitBtn = document.getElementById('submitBtn');
-    var actionUrl = form.getAttribute('action');
-    
-    // Checks if you forgot to replace the placeholder
-    if(actionUrl === "https://script.google.com/macros/s/AKfycbxfLio0gx_koY3FZnL0r0Bt8wNO1c0jH7K1JYtj6MvkyM8C8xC2ypGQNddkPlzbi30/exec" || !actionUrl || actionUrl.trim() === "") {
-       alert("Setup Check: Please configure your deployed Google Apps Script link within your file's form action parameter.");
-       return;
-    }
-    
-    var utr = utrInput.value.trim();
-    if (utr.length !== 12) { 
-      alert('Please enter a valid 12-digit UPI Transaction ID / UTR Number.'); 
-      return; 
-    }
-
-    if (!pntConfirm.checked) {
-      alert('Please click the payment confirmation checkbox to verify your transfer details.');
-      return;
-    }
-    
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Processing Details...";
-    
-    var formData = new FormData(form);
-    
-    fetch(actionUrl, {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      form.style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-    })
-    .catch(error => {
-      alert('Network error encountered. Please check your web connection and try again.');
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Submit Registration";
-    });
-  });
 </script>
 </body>
 </html>
