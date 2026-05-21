@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlaced Theory — Every Pace. Every Week.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --orange: #F55C1B;
+    --orange-dark: #D44810;
+    --orange-light: #FF7A3D;
+    --orange-pale: #FFF0E8;
+    --black: #111111;
+    --dark: #1C1C1C;
+    --dark-mid: #2A2A2A;
+    --grey-dark: #3A3A3A;
+    --grey-mid: #6B6B6B;
+    --grey-light: #ACACAC;
+    --grey-pale: #F2F2F0;
+    --grey-card: #F7F7F5;
+    --white: #FFFFFF;
+    --border: rgba(0,0,0,0.10);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
+    --shadow-lg: 0 24px 64px rgba(0,0,0,0.14);
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 32px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--black); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+  /* ---- UTILITIES ---- */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .btn-orange { background: var(--orange); color: var(--white); border: none; padding: 14px 28px; border-radius: 50px; font-family: var(--font-body); font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.15s; display: inline-block; text-decoration: none; letter-spacing: 0.01em; }
+  .btn-orange:hover { background: var(--orange-dark); transform: translateY(-1px); }
+  .btn-outline-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); padding: 12px 28px; border-radius: 50px; font-family: var(--font-body); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-block; text-decoration: none; }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: white; }
+  .section-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; display: block; }
+  .section-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 58px); font-weight: 800; line-height: 1.0; color: var(--black); text-transform: uppercase; letter-spacing: -0.01em; }
+  .section-title span { color: var(--orange); }
+
+  /* ---- HEADER ---- */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: var(--black); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+  .logo span { color: var(--orange); }
+  .logo-img { height: 40px; width: auto; display: block; }
+  nav { display: flex; align-items: center; gap: 8px; }
+  nav a { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--grey-dark); text-decoration: none; padding: 8px 14px; border-radius: 50px; transition: all 0.2s; }
+  nav a:hover { color: var(--black); background: var(--grey-pale); }
+  .nav-cta { background: var(--orange); color: var(--white) !important; padding: 10px 20px !important; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--orange-dark) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--black); margin: 5px 0; border-radius: 2px; transition: all 0.3s; }
+  .mobile-nav { display: none; position: fixed; inset: 0; background: var(--white); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-family: var(--font-display); font-size: 36px; font-weight: 800; text-transform: uppercase; color: var(--black); text-decoration: none; letter-spacing: 0.02em; }
+  .mobile-nav a:hover { color: var(--orange); }
+  .mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 32px; cursor: pointer; color: var(--black); }
+
+  /* ---- HERO ---- */
+  #home { position: relative; min-height: 96vh; display: flex; align-items: center; background: var(--dark); overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #1a0a00 0%, #2d1005 40%, #1C1C1C 100%); }
+  .hero-bg::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(245,92,27,0.12)'/%3E%3C/svg%3E") repeat; }
+  .hero-accent { position: absolute; top: -60px; right: -60px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(245,92,27,0.22) 0%, transparent 70%); pointer-events: none; }
+  .hero-accent2 { position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(245,92,27,0.12) 0%, transparent 70%); pointer-events: none; }
+  .hero-content { position: relative; z-index: 2; max-width: 760px; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(60px, 9vw, 110px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; color: var(--white); margin-bottom: 28px; }
+  .hero-h1 .accent { color: var(--orange); display: block; }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 42px; max-width: 520px; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .scroll-cue { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--font-display); animation: bobscroll 2.5s ease-in-out infinite; }
+  .scroll-cue::after { content:''; width:1px; height:36px; background: rgba(255,255,255,0.2); }
+  @keyframes bobscroll { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)} }
+
+  /* ---- ABOUT ---- */
+  #about { padding: 110px 0; background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img-placeholder { width: 100%; aspect-ratio: 4/5; background: linear-gradient(135deg, #1C1C1C 0%, #2d1005 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  .about-img-placeholder::before { content:''; position:absolute; inset:0; background: url("DSC00444.jpg") no-repeat center/cover; }
+  .about-badge { position: absolute; bottom: -20px; right: -20px; background: var(--orange); color: var(--white); border-radius: var(--radius-lg); padding: 20px 24px; font-family: var(--font-display); text-align: center; box-shadow: var(--shadow-lg); }
+  .about-badge-num { font-size: 40px; font-weight: 900; line-height: 1; display: block; }
+  .about-badge-text { font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; opacity: 0.9; }
+  .about-text p { font-size: 16px; color: var(--grey-dark); line-height: 1.75; margin-bottom: 20px; }
+  .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+  .pillar { background: var(--grey-card); border-radius: var(--radius-md); padding: 18px 20px; border-left: 3px solid var(--orange); }
+  .pillar-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; color: var(--black); }
+  .pillar-desc { font-size: 13px; color: var(--grey-mid); line-height: 1.5; }
+
+  /* ---- RUN UPDATES ---- */
+  #updates { padding: 110px 0; background: var(--grey-pale); }
+  .alert-banner { background: var(--orange); color: var(--white); border-radius: var(--radius-md); padding: 18px 24px; display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+  .alert-icon { font-size: 22px; flex-shrink: 0; }
+  .alert-text { flex: 1; }
+  .alert-text strong { font-weight: 700; font-size: 15px; display: block; }
+  .alert-text span { font-size: 14px; opacity: 0.92; }
+  .alert-dismiss { background: rgba(255,255,255,0.2); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+  .alert-dismiss:hover { background: rgba(255,255,255,0.3); }
+  .updates-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+  .updates-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  .update-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: row; min-height: 240px; }
+  @media (max-width: 768px) { .update-card { flex-direction: column; } }
+  .update-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .update-card-img { width: 40%; background: url("DSC00444.jpg") no-repeat center/cover; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; }
+  @media (max-width: 768px) { .update-card-img { width: 100%; height: 200px; } }
+  .update-card-img::after { content:''; position:absolute; inset:0; background: url("DSC00252.jpg") no-repeat center/cover; }
+  .update-card-body { padding: 32px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .date-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--orange-pale); color: var(--orange); font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; padding: 5px 12px; border-radius: 50px; margin-bottom: 12px; align-self: flex-start; }
+  .update-card-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 10px; color: var(--black); }
+  .update-card-desc { font-size: 15px; color: var(--grey-mid); line-height: 1.6; }
+  .update-tag { display: inline-block; margin-top: 16px; font-size: 12px; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ---- REGISTER ---- */
+  #register { padding: 110px 0; background: var(--dark); position: relative; overflow: hidden; }
+  #register::before { content: ''; position: absolute; top: -120px; right: -120px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(245,92,27,0.15) 0%, transparent 70%); }
+  .register-header { text-align: center; margin-bottom: 60px; }
+  .register-header .section-title { color: var(--white); }
+  .register-header p { color: rgba(255,255,255,0.6); margin-top: 16px; font-size: 16px; }
+  .register-card { background: var(--white); border-radius: var(--radius-xl); padding: 52px; max-width: 700px; margin: 0 auto; position: relative; z-index: 1; box-shadow: 0 40px 80px rgba(0,0,0,0.4); border-top: 5px solid var(--orange); }
+  .form-group { margin-bottom: 22px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--grey-dark); margin-bottom: 7px; letter-spacing: 0.02em; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 16px; border: 1.5px solid #E0E0DC; border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 15px; color: var(--black); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; appearance: none; }
+  .form-group input:focus, .form-group select:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(245,92,27,0.12); }
+  .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+  .price-display { background: var(--grey-card); border-radius: var(--radius-md); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border: 1.5px solid #E0E0DC; }
+  .price-label { font-size: 14px; color: var(--grey-mid); }
+  .price-amount { font-family: var(--font-display); font-size: 28px; font-weight: 900; color: var(--orange); }
+  .payment-section { margin-top: 28px; padding-top: 28px; border-top: 1.5px solid #E8E8E4; }
+  .payment-label { font-family: var(--font-display); font-size: 14px; font-weight: 800; letter-spacing: 0.10em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+  .payment-label::after { content: '🔒'; font-size: 13px; }
+  
+  .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; text-align: left; background: var(--orange-pale); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--orange); }
+  .checkbox-group input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--orange); flex-shrink: 0; cursor: pointer; }
+  .checkbox-group label { font-size: 13px; font-weight: 600; color: var(--black); line-height: 1.4; cursor: pointer; }
+  .submit-btn { width: 100%; padding: 17px; background: var(--orange); color: var(--white); border: none; border-radius: 50px; font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em; }
+  .submit-btn:disabled { background: var(--grey-light) !important; color: rgba(255,255,255,0.7) !important; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+
+  /* ---- SOCIAL / CONTACT SECTION ---- */
+  #contact { padding: 100px 0; background: var(--white); text-align: center; }
+  .contact-details-wrap { max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+  .contact-detail { display: flex; align-items: center; gap: 14px; width: 100%; max-width: 440px; background: var(--grey-card); padding: 16px 24px; border-radius: var(--radius-md); border-left: 4px solid var(--orange); text-align: left; box-shadow: var(--shadow-sm); }
+  .contact-icon { width: 42px; height: 42px; background: var(--orange-pale); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contact-detail-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--black); }
+  .contact-detail-text span { font-size: 14px; color: var(--grey-mid); }
+  .socials { display: flex; gap: 16px; margin-top: 12px; justify-content: center; width: 100%; }
+  .social-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border: 1.5px solid var(--border); border-radius: 50px; font-size: 14px; font-weight: 600; color: var(--grey-dark); text-decoration: none; transition: all 0.2s; background: var(--white); box-shadow: var(--shadow-sm); }
+  .social-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-pale); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  /* ---- FOOTER ---- */
+  footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 80px 0 0; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand .logo { color: var(--white); font-size: 24px; }
+  .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); margin-top: 16px; max-width: 320px; }
+  .footer-col h4 { font-family: var(--font-display); font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+  .footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-social-links { display: flex; flex-direction: column; gap: 10px; }
+  .footer-social-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+  .footer-social-links a:hover { color: var(--orange); }
+  .disclaimer { background: rgba(0,0,0,0.2); padding: 32px 0; margin-top: 20px; }
+  .disclaimer p { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.7; }
+  .disclaimer strong { color: rgba(255,255,255,0.5); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 26px 0; }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    nav a:not(.nav-cta) { display: none; }
+    .hamburger { display: block; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .updates-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 600px) {
+    .updates-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .register-card { padding: 32px 24px; }
+    .hero-h1 { font-size: 58px; }
+    .socials { flex-direction: column; align-items: center; width: 100%; }
+    .social-btn { width: 100%; max-width: 440px; justify-content: center; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .about-pillars { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()" aria-label="Close menu">✕</button>
+  <a href="#home" onclick="closeMobileNav()">Home</a>
+  <a href="#about" onclick="closeMobileNav()">About Us</a>
+  <a href="#updates" onclick="closeMobileNav()">Run Updates</a>
+  <a href="#register" onclick="closeMobileNav()">Register</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact Us</a>
+</div>
+
+<header>
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <img src="logo.jpeg" alt="Unlaced Theory Logo" class="logo-img">
+      Unlaced<span>Theory</span>
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#updates">Run Updates</a>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#register" class="btn-orange nav-cta" style="border-radius:50px; margin-left:8px;">Join Next Run</a>
+    </nav>
+    <button class="hamburger" onclick="openMobileNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section id="home">
+  <div class="hero-bg">
+    <video autoplay loop muted playsinline>
+      <source src="C0034.MP4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <div class="hero-accent"></div>
+  <div class="hero-accent2"></div>
+  
+  <div class="container" style="position:relative; z-index:2; padding-top:80px; padding-bottom:80px;">
+    <div class="hero-content">
+      <h1 class="hero-h1">Unlaced<br>Theory:<br><span class="accent">Want to become a <br>UTCutie?</span></h1>
+      <p class="hero-sub">Rewrite your running routine. A community built on showing up — no matter your speed, background, or experience.</p>
+      <div class="hero-btns">
+        <a href="#register" class="btn-orange" style="font-size:16px; padding:16px 34px;">Register Now</a>
+        <a href="#about" class="btn-outline-white" style="font-size:16px; padding:14px 34px;">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<style>
+/* 2. Added CSS to make the video scale and behave like a background cover */
+#home {
+  position: relative;
+  overflow: hidden; /* Keeps the video contained inside the section */
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Sits behind the container text (which has z-index: 2) */
+}
+
+.hero-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Forces the video to cover the area without distorting */
+}
+</style>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <span class="about-img-icon">🏃‍♀️</span>
+        </div>
+        <div class="about-badge">
+          <span class="about-badge-num">Police</span>
+          <span class="about-badge-text">Supervised<br>Running</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">Built by<br><span>Runners,</span><br>For Runners.</h2>
+        <p style="margin-top:24px;">Unlaced Theory began with a simple belief: running is better together. What started as a handful of friends lacing up on a run has grown into a thriving, inclusive community of over 200 local runners of every shape, speed, and story.</p>
+        <p>We don't believe in pace gates or performance benchmarks. Our philosophy is simple — if you put on shoes and show up, you belong here. We've seen first-time joggers become half-marathoners and seasoned athletes rediscover their love for the sport, all because of the community around them.</p>
+        <p>Every run we host is guided by our core value: <strong>no runner left behind.</strong></p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-title">Inclusive</div>
+            <div class="pillar-desc">Walking to sub-8 min miles — every pace is a valid pace.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Community</div>
+            <div class="pillar-desc">We run together, recover together, celebrate together.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Supervision</div>
+            <div class="pillar-desc">All the runs are supervised by the Police Department.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Safe</div>
+            <div class="pillar-desc">Trained leads, lit routes, and a culture of looking out for each other.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="container">
+    <div id="alertBanner" class="alert-banner">
+      <div class="alert-icon">📣</div>
+      <div class="alert-text">
+        <strong>Upcoming Event Update</strong>
+        <span>Check out the details for our upcoming community run in Vijayawada below!</span>
+      </div>
+      <button class="alert-dismiss" onclick="document.getElementById('alertBanner').style.display='none'" aria-label="Dismiss">✕</button>
+    </div>
+    <div class="updates-header">
+      <div>
+        <span class="section-label">What's Happening</span>
+        <h2 class="section-title">Run <span>Updates</span></h2>
+      </div>
+      <a href="#register" class="btn-orange">Register for a Run</a>
+    </div>
+    <div class="updates-grid">
+      <div class="update-card">
+        <div class="update-card-img"><span></span></div>
+        <div class="update-card-body">
+          <div class="date-badge">June 7, 2026 • 6:00 AM</div>
+          <div class="update-card-title">Community Run — Nitro Pickleball Café</div>
+          <div class="update-card-desc">
+            Join us for an early morning run starting at Nitro Pickleball Café (near Novotel, Vijayawada, Andhra Pradesh). 
+            All pace groups are welcome. Stick around post-run to hang out and grab some refreshments!
+          </div>
+          <div class="update-tag">→ View Route & Register</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="register-header">
+      <span class="section-label" style="color:rgba(245,92,27,0.9);">Community Run Registration</span>
+      <h2 class="section-title">Sign Up For<br><span>June 7th Run</span></h2>
+      <p>Fill out your details below, scan the QR code to pay the registration fee, and secure your spot.</p>
+    </div>
+    
+    <div class="register-card">
+      <form id="regForm" method="POST" action="https://script.google.com/macros/s/AKfycbxfLio0gx_koY3FZnL0r0Bt8wNO1c0jH7K1JYtj6MvkyM8C8xC2ypGQNddkPlzbi30/exec">
+        
+        <div class="form-group">
+          <label for="fullname">Name *</label>
+          <input type="text" id="fullname" name="Name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="age">Age *</label>
+          <input type="number" id="age" name="Age" placeholder="Enter your age" min="1" max="120" required>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender *</label>
+          <select id="gender" name="Gender" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other / Prefer not to say</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="PhoneNumber" placeholder="Enter your 10-digit phone number" required>
+        </div>
+
+        <div class="form-group">
+          <label for="instagram">Instagram Handle *</label>
+          <input type="text" id="instagram" name="InstagramHandle" placeholder="@username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="emg-name">Emergency Contact Name *</label>
+          <input type="text" id="emg-name" name="EmergencyName" placeholder="Contact person's name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="emg-phone">Emergency Contact Phone Number *</label>
+          <input type="tel" id="emg-phone" name="EmergencyPhone" placeholder="Emergency phone number" required>
+        </div>
+
+        <div class="price-display">
+          <span class="price-label">Registration Fee</span>
+          <span class="price-amount">₹350</span>
+        </div>
+
+        <div id="paymentSection" class="payment-section" style="text-align: center; border: 2px dashed var(--orange); padding: 24px; border-radius: var(--radius-md); margin-bottom: 24px; background: rgba(245,92,27,0.02);">
+          <div class="payment-label" style="font-weight:700; margin-bottom:12px; color:var(--black); font-size: 16px;">Scan QR Code to Pay ₹350</div>
+          
+          <div style="margin: 15px 0;">
+            <img src="UPI.jpg" id="upiQr" alt="PhonePe UPI Payment QR Code" style="max-width:220px; width:100%; border: 4px solid #fff; box-shadow: var(--shadow-sm); border-radius: 4px;">
+          </div>
+          
+          <div style="font-size:13px; color:var(--grey-mid); margin-bottom:15px; line-height: 1.4;">
+            Scan using any UPI app (GPay, PhonePe, Paytm). Once payment is complete, enter the 12-digit Transaction ID/UTR below.
+          </div>
+
+          <div class="form-group" style="text-align: left; margin-bottom: 0;">
+            <label for="utr">UPI Transaction ID / UTR No. (12 Digits) *</label>
+            <input type="text" id="utr" name="TransactionID" placeholder="e.g. 3456XXXXXXXX" maxlength="12" minlength="12" pattern="[a-zA-Z0-9]{12}" title="Please enter exactly 12 alphanumeric characters." required>
+          </div>
+          
+          <div class="checkbox-group">
+            <input type="checkbox" id="paymentConfirm" required>
+            <label for="paymentConfirm">I confirm that I have successfully completed the UPI payment of ₹350 and entered the correct 12-digit UTR ID above. *</label>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit Registration</button>
+        <p class="form-note">🔒 Data transmissions are safe, encrypted, and routed directly to Unlaced Theory.</p>
+      </form>
+
+      <div class="success-msg" id="successMsg" style="display:none; text-align: center; padding: 40px 20px;">
+        <div style="font-size:64px;margin-bottom:16px;">🎉</div>
+        <h3>Registration Submitted!</h3>
+        <p>Your details and payment reference have been safely parsed for verification. See you on June 7th at 6:00 AM!</p>
+        <a href="#updates" class="btn-orange" style="margin-top:24px;display:inline-block;">Back to Updates</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-label">Connect With Us</span>
+      <h2 class="section-title">Find Us & <span>Follow Along</span></h2>
+      <p style="color: var(--grey-mid); margin-top: 12px; font-size: 16px;">Have a question about pace groups or routes? Get in touch across our community hubs.</p>
+    </div>
+    
+    <div class="contact-details-wrap">
+      <div class="contact-detail">
+        <div class="contact-icon">📧</div>
+        <div class="contact-detail-text">
+          <strong>General Inquiries</strong>
+          <span>unlacedtheory@gmail.com</span>
+        </div>
+      </div>
+      
+      <div class="contact-detail">
+        <div class="contact-icon">📱</div>
+        <div class="contact-detail-text">
+          <strong>WhatsApp Hub</strong>
+          <span>Real-time club updates & schedule notifications</span>
+        </div>
+      </div>
+      
+      <div class="socials">
+        <a href="https://www.instagram.com/unlaced_theory" target="_blank" class="social-btn">📸 Follow on Instagram</a>
+        <a href="https://chat.whatsapp.com/Ed8JNGhQAM4F529b7jT76n" target="_blank" class="social-btn">💬 Join WhatsApp Group</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo">Unlaced<span style="color:var(--orange);">Theory</span></a>
+        <p>A community-first run club built around showing up. No pace requirements, no runner left behind.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation Links</h4>
+        <a href="#home">Home Base</a>
+        <a href="#about">Our Philosophy</a>
+        <a href="#updates">Run Updates</a>
+        <a href="#register">Register for Runs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Social Links</h4>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/unlaced_theory" target="_blank">Instagram</a>
+          <a href="https://chat.whatsapp.com/Ed8JNGhQAM4F529b7jT76n" target="_blank">WhatsApp Channel</a>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <div class="container">
+        <p><strong>Health &amp; Liability Disclaimer:</strong> By participating in any Unlaced Theory event, you acknowledge that running involves inherent physical risks. Participants should be in good health and consult a physician before beginning any exercise regimen. Unlaced Theory and its organizers are not liable for any injuries or health complications sustained during club activities. Participation is entirely voluntary and at your own risk.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Unlaced Theory. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Waiver Agreement</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow = ''; }
+
+  // Structural Form barrier conditions track parameters
+  var utrInput = document.getElementById('utr');
+  var pntConfirm = document.getElementById('paymentConfirm');
+  var sbtBtn = document.getElementById('submitBtn');
+
+  function evaluateFormBarrier() {
+    var val = utrInput.value.trim();
+    if(val.length === 12 && pntConfirm.checked === true && !isNaN(val)) {
+      sbtBtn.disabled = false;
+    } else {
+      sbtBtn.disabled = true;
+    }
+  }
+
+  utrInput.addEventListener('input', evaluateFormBarrier);
+  pntConfirm.addEventListener('change', evaluateFormBarrier);
+
+  // Handles Async Form Submission to Google Spreadsheet Configuration Pipeline Link
+  document.getElementById('regForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    var form = this;
+    var submitBtn = document.getElementById('submitBtn');
+    var actionUrl = form.getAttribute('action');
+    
+    if(actionUrl === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" || !actionUrl) {
+       alert("Setup Check: Please configure your deployed Google Apps Script link within your file's form action parameter.");
+       return;
+    }
+    
+    var utr = utrInput.value.trim();
+    if (utr.length !== 12 || isNaN(utr)) { 
+      alert('Please enter a valid 12-digit UPI Transaction ID / UTR Number.'); 
+      return; 
+    }
+
+    if (!pntConfirm.checked) {
+      alert('Please click the payment confirmation checkbox to verify your transfer details.');
+      return;
+    }
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Processing Details...";
+    
+    var formData = new FormData(form);
+    
+    fetch(actionUrl, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    })
+    .catch(error => {
+      alert('Network error encountered. Please check your web connection and try again.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Registration";
+    });
+  });
+
+  // Smooth Entry Intersector for Visual Components
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.update-card, .pillar, .about-badge').forEach(function(el){
+    el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
