@@ -88,9 +88,8 @@
   #about { padding: clamp(60px, 8vw, 110px) 0; background: var(--white); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
   .about-img-wrap { position: relative; width: 100%; }
-  .about-img-placeholder { width: 100%; aspect-ratio: 4/5; background: linear-gradient(135deg, #1C1C1C 0%, #2d1005 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-  /* Fixed file path syntax and removed spaces for secure web resolution */
-  .about-img-placeholder::before { content:''; position:absolute; inset:0; background: url("founder-img.jpeg") no-repeat center/cover; }
+  .about-img-placeholder { width: 100%; aspect-ratio: 4/5; background: #1C1C1C; border-radius: var(--radius-xl); overflow: hidden; position: relative; }
+  .about-img-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .about-text p { font-size: 16px; color: var(--grey-dark); line-height: 1.75; margin-bottom: 20px; }
   .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
   .pillar { background: var(--grey-card); border-radius: var(--radius-md); padding: 18px 20px; border-left: 3px solid var(--orange); }
@@ -107,11 +106,12 @@
   .stat-num { font-family: var(--font-display); font-size: clamp(28px, 4vw, 36px); font-weight: 900; color: var(--orange); display: block; line-height: 1; margin-bottom: 4px; }
   .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--dark-mid); letter-spacing: 0.05em; }
   .run-1-img-wrap { position: relative; width: 100%; }
-  .run-1-graphic { background: var(--dark); border-radius: var(--radius-xl); padding: clamp(24px, 4vw, 40px); color: var(--white); position: relative; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; }
-  /* Fixed background file URL path string for GitHub server accessibility */
-  .run-1-graphic::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85) 100%), url("DSC00444.jpg") no-repeat center/cover; opacity: 0.85; }
-  .run-1-tag { position: relative; z-index: 2; font-family: var(--font-display); font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; }
-  .run-1-title { position: relative; z-index: 2; font-family: var(--font-display); font-size: clamp(32px, 4vw, 42px); font-weight: 900; text-transform: uppercase; line-height: 1.0; margin-top: 4px; }
+  
+  .run-1-graphic-container { position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 1/1; width: 100%; background: var(--dark); }
+  .run-1-graphic-container img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; z-index: 1; }
+  .run-1-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85) 100%); z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(24px, 4vw, 40px); }
+  .run-1-tag { position: relative; z-index: 3; font-family: var(--font-display); font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; }
+  .run-1-title { position: relative; z-index: 3; font-family: var(--font-display); font-size: clamp(32px, 4vw, 42px); font-weight: 900; text-transform: uppercase; line-height: 1.0; margin-top: 4px; color: var(--white); }
   .run-1-badge { position: absolute; top: -15px; left: -15px; background: var(--orange); color: var(--white); border-radius: var(--radius-lg); padding: 16px 20px; font-family: var(--font-display); text-align: center; box-shadow: var(--shadow-lg); z-index: 4; }
   .run-1-badge-num { font-size: clamp(26px, 3.5vw, 34px); font-weight: 900; line-height: 1; display: block; }
   .run-1-badge-text { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; opacity: 0.9; }
@@ -128,9 +128,8 @@
   .updates-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
   .updates-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 0 auto; width: 100%; }
   .update-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: row; min-height: 240px; }
-  .update-card-img { width: 40%; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; background: #1c1c1c; }
-  /* Fixed file path string environment parameter */
-  .update-card-img::after { content:''; position:absolute; inset:0; background: url("DSC00252.jpg") no-repeat center/cover; }
+  .update-card-img { width: 40%; position: relative; background: #1c1c1c; overflow: hidden; }
+  .update-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .update-card-body { padding: clamp(20px, 4vw, 32px); flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .date-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--orange-pale); color: var(--orange); font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; padding: 5px 12px; border-radius: 50px; margin-bottom: 12px; align-self: flex-start; }
   .update-card-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 10px; color: var(--black); }
@@ -267,7 +266,9 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap">
-        <div class="about-img-placeholder"></div>
+        <div class="about-img-placeholder">
+          <img src="founder-img.jpeg" alt="Unlaced Theory Founders">
+        </div>
       </div>
       <div class="about-text">
         <span class="section-label">Our Story</span>
@@ -331,9 +332,12 @@
           <span class="run-1-badge-num">Police</span>
           <span class="run-1-badge-text">Supervised<br>Running</span>
         </div>
-        <div class="run-1-graphic">
-          <span class="run-1-tag">Inaugural Event</span>
-          <h4 class="run-1-title">UT Run - 1 <br><span style="color:var(--orange);">History Made.</span></h4>
+        <div class="run-1-graphic-container">
+          <img src="DSC00444.jpg" alt="UT Run 1 Start Baseline">
+          <div class="run-1-overlay">
+            <span class="run-1-tag">Inaugural Event</span>
+            <h4 class="run-1-title">UT Run - 1 <br><span style="color:var(--orange);">History Made.</span></h4>
+          </div>
         </div>
       </div>
     </div>
@@ -359,7 +363,9 @@
     </div>
     <div class="updates-grid">
       <div class="update-card">
-        <div class="update-card-img"><span></span></div>
+        <div class="update-card-img">
+          <img src="DSC00252.jpg" alt="Upcoming Run Location">
+        </div>
         <div class="update-card-body">
           <div class="date-badge">June 7, 2026 • 6:00 AM</div>
           <div class="update-card-title">Community Run — Nitro Pickleball Café</div>
