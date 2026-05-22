@@ -89,7 +89,7 @@
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
   .about-img-wrap { position: relative; width: 100%; }
   .about-img-placeholder { width: 100%; aspect-ratio: 4/5; background: linear-gradient(135deg, #1C1C1C 0%, #2d1005 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-  .about-img-placeholder::before { content:''; position:absolute; inset:0; background: url("founder img.jpeg") no-repeat center/cover; }
+  .about-img-placeholder::before { content:''; position:absolute; inset:0; background: url("./founder img.jpeg") no-repeat center/cover; }
   .about-text p { font-size: 16px; color: var(--grey-dark); line-height: 1.75; margin-bottom: 20px; }
   .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
   .pillar { background: var(--grey-card); border-radius: var(--radius-md); padding: 18px 20px; border-left: 3px solid var(--orange); }
@@ -107,11 +107,9 @@
   .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--dark-mid); letter-spacing: 0.05em; }
   .run-1-img-wrap { position: relative; width: 100%; }
   .run-1-graphic { background: var(--dark); border-radius: var(--radius-xl); padding: clamp(24px, 4vw, 40px); color: var(--white); position: relative; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; }
-  .run-1-graphic::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85) 100%), url("DSC00444.jpg") no-repeat center/cover; opacity: 0.85; }
+  .run-1-graphic::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85) 100%), url("./DSC00444.jpg") no-repeat center/cover; opacity: 0.85; }
   .run-1-tag { position: relative; z-index: 2; font-family: var(--font-display); font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; }
   .run-1-title { position: relative; z-index: 2; font-family: var(--font-display); font-size: clamp(32px, 4vw, 42px); font-weight: 900; text-transform: uppercase; line-height: 1.0; margin-top: 4px; }
-  
-  /* Relocated Supervised Running Badge Styles */
   .run-1-badge { position: absolute; top: -15px; left: -15px; background: var(--orange); color: var(--white); border-radius: var(--radius-lg); padding: 16px 20px; font-family: var(--font-display); text-align: center; box-shadow: var(--shadow-lg); z-index: 4; }
   .run-1-badge-num { font-size: clamp(26px, 3.5vw, 34px); font-weight: 900; line-height: 1; display: block; }
   .run-1-badge-text { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; opacity: 0.9; }
@@ -129,7 +127,7 @@
   .updates-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 0 auto; width: 100%; }
   .update-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: row; min-height: 240px; }
   .update-card-img { width: 40%; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; background: #1c1c1c; }
-  .update-card-img::after { content:''; position:absolute; inset:0; background: url("DSC00252.jpg") no-repeat center/cover; }
+  .update-card-img::after { content:''; position:absolute; inset:0; background: url("./DSC00252.jpg") no-repeat center/cover; }
   .update-card-body { padding: clamp(20px, 4vw, 32px); flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .date-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--orange-pale); color: var(--orange); font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; padding: 5px 12px; border-radius: 50px; margin-bottom: 12px; align-self: flex-start; }
   .update-card-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 10px; color: var(--black); }
@@ -144,7 +142,9 @@
   .register-header .section-title { color: var(--white); }
   .register-header p { color: rgba(255,255,255,0.6); margin-top: 16px; font-size: 16px; }
   .form-container-wrap { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.4); border-top: 6px solid var(--orange); padding: 6px; width: 100%; }
-  .form-container-wrap iframe { width: 100%; height: 950px; border: none; display: block; background: #ffffff; }
+  
+  /* Overrides form's layout parameters to guarantee solid scannability across desktops and smartphones */
+  .form-container-wrap iframe { width: 100% !important; height: 3480px; border: none; display: block; background: #ffffff; }
 
   /* ---- SOCIAL / CONTACT SECTION ---- */
   #contact { padding: clamp(60px, 8vw, 100px) 0; background: var(--white); text-align: center; }
@@ -201,7 +201,9 @@
     .footer-top { grid-template-columns: 1fr; gap: 36px; }
     .footer-bottom { flex-direction: column; text-align: center; }
     .footer-links { justify-content: center; gap: 14px; }
-    .form-container-wrap iframe { height: 1100px; }
+    
+    /* Slightly increased baseline height for mobile rendering to prevent field cropping */
+    .form-container-wrap iframe { height: 3620px; } 
   }
 </style>
 </head>
@@ -382,10 +384,7 @@
     </div>
     
     <div class="form-container-wrap">
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLScYpY-RjIh7k8_q8fM_f5PUJ9z3kR6pogdHA/viewform?embedded=true">
-        Loading form...
-      </iframe>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd5nWLRkG0NX6NmhClpzu1e8NYpnlVepEmXZx3OIxQZADrFWw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
   </div>
 </section>
